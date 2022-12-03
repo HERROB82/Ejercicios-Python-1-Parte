@@ -12,7 +12,7 @@
 #1.3	Escribir un programa que pregunte el nombre del usuario en la consola y después de que el usuario lo introduzca muestre por pantalla la cadena ¡Hola <nombre>!, donde <nombre> es el nombre que el usuario haya introducido.
 
 #nombre=input("Introduzca un nombre: ")
-#print("Hola",nombre)
+#print("Adios",nombre)
 
 
 #1.4	Escribir un programa que muestre por pantalla el resultado de la siguiente operación aritmética (3+22⋅5)2.
