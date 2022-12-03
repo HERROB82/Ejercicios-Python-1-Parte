@@ -1,4 +1,4 @@
-#1.	¡¡¡¡¡¡¡¡¡¡   Ejercicios de TIPOS DE DATOS SIMPLES     !!!!!!!
+#1.	¡¡¡¡¡¡¡¡¡¡   Ejercicios de TIPOS DE DATOS SIMPLES 1ºParte     !!!!!!!
 
 #1.1	Escribir un programa que muestre por pantalla la cadena ¡Hola Mundo!
 
