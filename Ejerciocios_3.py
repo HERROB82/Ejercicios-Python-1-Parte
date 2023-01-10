@@ -101,3 +101,73 @@ print(len(prueba)%2==0)'''
 prueba_2 =(input("escribe una cadena de texto: "))
 
 print(prueba_1<prueba_2)'''
+
+# 16 -Escribí un programa para pedir al usuario su nombre y luego el nombre de otra persona, almacenando cada nombre en una variable. Luego mostrar en pantalla un valor de verdad que indique si: los nombres de ambas personas comienzan con la misma letra ó si terminan con la misma letra. Por ejemplo, si los nombres ingresados son María y Marcos, se mostrará True, ya que ambos comienzan con la misma letra. Si los nombres son Ricardo y Gonzalo se mostrará True, ya que ambos terminan con la misma letra. Si los nombres son Florencia y Lautaro se mostrará False, ya que no coinciden ni la primera ni la última letra.
+
+'''nombre=input("Introduzca su nombre: ")
+otro_nombre=input("introduzca nombre de otra persona: ")
+print((nombre[0]==otro_nombre[0]) or (nombre[-1]==otro_nombre[-1]))'''
+
+### SECCION 2 ###
+
+# 17 -Escribí un programa que, dado un número entero, muestre su valor absoluto. Recordá que, para los números positivos su valor absoluto es igual al número (el valor absoluto de 52 es 52), mientras que, para los negativos, su valor absoluto es el número multiplicado por -1 (el valor absoluto de -52 es 52).
+
+'''numero=int(input("Introduzca un numero: "))
+
+if numero <0:
+    #numero=numero*-1
+    numero=abs(numero)
+print("el valor absoluto es: ",numero)'''
+
+# 18 -Escribí un programa que solicite al usuario el ingreso de dos números diferentes y muestre en pantalla al mayor de los dos.
+
+'''numero_1=int(input("Introduzca un numero: "))
+
+numero_2=int(input("Introduzca un numero: "))
+
+if numero_1 > numero_2:
+    print("numero 1 es mayor que numero 2")
+
+else:
+    print("numero 2 es mayor que numero 1")'''
+
+# 19 -Escribí un programa que solicite al usuario una letra y, si es una vocal, muestre el mensaje “Es vocal”. Verificar si el usuario ingresó un string de más de un carácter y, en ese caso, informarle que no se puede procesar el dato.
+
+'''vocal=str(input("Introduzca una letra: "))
+
+if len(vocal) != 1:
+    print("debe ser solo UNA letra")
+if vocal == "a" or vocal =="e" or vocal=="i" or vocal=="o" or vocal=="u":
+    print("es vocal")
+else:
+    print("no es una vocal")'''
+
+# 20 -Escribí un programa para solicitar al usuario tres números y mostrar en pantalla al menor de los tres.
+
+'''numero_1=int(input("Introduzca un numero: "))
+numero_2=int(input("Introduzca un numero: "))
+numero_3=int(input("Introduzca un numero: "))
+
+if numero_1 < numero_2 and numero_2 < numero_3:
+    print("El numero 1 es el menor de los 3")
+elif numero_2 < numero_1 and numero_2 < numero_3:
+    print("El numero 2 es el menor de los 3")
+else:
+    print("el numero 3 es el menor")'''
+
+# 21 -Escribí un programa que solicite ingresar un nombre de usuario y una contraseña. Si el nombre es “Gwenevere” y la contraseña es “excalibur”, mostrar en pantalla “Usuario y contraseña correctos. Puede ingresar a Camelot”. Si el nombre o la contraseña no coinciden, mostrar “Acceso denegado”.
+
+usuario_real="Gwenevere"
+contraseña_real="excalibur"
+variable=True
+while variable:
+
+    usuario=str(input("Introduzca el usuario: "))
+    contraseña=str(input("Introduzca la contraseña: "))
+
+    if usuario == usuario_real and contraseña == contraseña_real:
+        print("Puede entrar a Camelot")
+        variable=False
+    else:
+        print("datos no correctos")
+
