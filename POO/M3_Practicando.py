@@ -104,7 +104,7 @@ print(p)'''
 #Creamos y eliminamos un objeto. OJO. Si reinstanciamos la misma variable mas de una vez, se crea de nuevo y se borra la anterior.
 # Lo contrario a los constructores à DESTRUCTORES no lo destruye sino lo que hace es acabar de definirlo
 # Xa borrar objetos lo que hacemos es liberar espacios, pero hoy en día es un proceso obsoleto.
-# Lo que pongaos dentro del DEL es lo que queremos que pase justo antes de la eliminación por lo que se suelen poner mensajes informativos
+# Lo que pongamos dentro del DEL es lo que queremos que pase justo antes de la eliminación por lo que se suelen poner mensajes informativos
 
 '''class Pelicula():
     def __init__(self,titulo,duracion,lanzamiento):
@@ -162,7 +162,7 @@ print(peli["lanzamiento"]) #puedo acceder a valores de clave'''
 
     #Redefinimos el metodo string
     def __str__(self):
-        return "{} lanzada en {} con una duracion de {} minutos".format(self.titulo,self.duracion,self.lanzamiento)
+        return "{} lanzada en {} con una duracion de {} minutos".format(self.titulo,self.lanzamiento,self.duracion)
 
 p1 = Pelicula("El Padrino",175,1072)
 print(p1)#al hacer print del objeto, se esta invocando al metodo __str__ de nuestra clase
@@ -202,7 +202,7 @@ print(hasattr(Producto,"nombre"))
 # BONUS 3: Eliminar atributos de una instancia de clase
 
 print(p1.__dict__) #Mostramos el objeto p1
-#delattr(p1,"nombre") #Eliminamos el atributo nombre pero nunca atributos de clase
+delattr(p1,"nombre") #Eliminamos el atributo nombre pero nunca atributos de clase
 print(p1.__dict__) #Mostramos el objeto p1'''
 # OJO con esto ya que todo lo que nos genere tene robjetos con estrucuturas diferentes eso nos va a complicar todo mucho mas cualquier 
 # tipo de automatixacion que queramos hacer
@@ -247,7 +247,7 @@ print(p_alien.director)#muestra el str de director
 print(p_alien.director.nombre)#con esto solo podemos sacar el valor de nombre del objeto poniendo .nombre
 print(p_alien.director.edad)
 
-# Comprobacio
+# Comprobacion
 print(type(p_alien.titulo))
 print(type(p_alien.duracion))
 print(type(p_alien.lanzamiento))
@@ -256,7 +256,7 @@ print(type(p_alien.director))'''
 # Algo mas AVANZADO: Creando un catalogo de peliculas (LISTA DE OBJETOS) #### REPASAR
 
 # Retomamos la pelicula original
-class Pelicula():
+'''class Pelicula():
 
   #Constructor de clase
   def __init__(self,titulo,duracion,lanzamiento):
@@ -279,11 +279,11 @@ class Catalogo():
     else:
         print("Se ha creado el catalogo con  las peliculas asignadas")
   
-  # Toda la interaccion que hagamos conlas variables de una clase (es decir; modificacion, lectura, lo que sea) con los 
+  # Toda la interaccion que hagamos con las variables de una clase (es decir; modificacion, lectura, lo que sea) con los 
   # atributos de una clase SIEMPRE DEBERIA SER A TRAVES DE UN METODO!!
   def agregar(self,p):#x eso tengo aqui el metodo agregar que recibe un parametro (p) que sera un objeto de la clase pelicula
     self.peliculas.append(p) #le hacemos un append a "peliculas" xa ir agregando 
-    print("Se ha agregado al catalogo la pelicula: {}".format(p.titulo)) #VER ESTO!!!!
+    print("Se ha agregado al catalogo la pelicula: {}".format(p.titulo)) #VER ESTO!!!! SI SE PUEDE
 
   def mostrar(self):
     for p in self.peliculas:
@@ -302,7 +302,7 @@ c.mostrar() #esta itera sobre la lista de objetos que existe en "c"
 # Con esto añadimos una nueva pelicula directamente
 c.agregar(Pelicula("El Padrino: Parte 2",202,1974))
 
-# Alternativa a la linea anterior
+# Alternativa a la linea anterior -- ESTA ES MEJOR!!
 p3 = Pelicula("El Padrino: Parte 3",202,1980)
 c.agregar(p3) # "c" es el objeto del catagolo y le invoco el metodo "agregar" y le paso el objeto "p3"
 
@@ -317,8 +317,7 @@ pM1=Pelicula("Matrix",175,1999)
 pM2=Pelicula("Matrix Reload",175,2003)
 pM3=Pelicula("Matrix Revolution",175,2005)
 c3 = Catalogo ([pM1,pM2,pM3])
-
-c3.mostrar()
+c3.mostrar()'''
 
 
 ## CLASE Nº 4 ##
@@ -353,6 +352,47 @@ e.__atributo_privado #Saldra por pantalla "Error de Atributo" ya que no puede ll
 
 # No es lo mismo acceder a una variable que a un metodo; acceder a una variable es acceder al contenido por ende a los datos.
 # Acceder a un metodo solo nos devuelve la posicion de memoria donde esta almacenado ese metodo, o sea que nada.
+
+## ENCAPSULACION ##
+
+#Getter: “Acceder Info”
+#Setter: “Modificar Info”
+#Solo puede haber 1 GET o 1 SET x cada Variable
+#Cuando creamos una clase lo primero que tenemos que hacer es el :
+#__INIT__
+Variables (definimos las variables)
+STR
+GETTER y SETTER
+
+# de todas las variables que hemos definidos hacemos un Getter y un Setter de c/u, y con eso tenemos pleno acceso pero de forma
+# encapsulada a nuestra Clase) si queremos acceder al nombre invocamos al “get del nombre”, 
+# si queremos cambiar el apellido invocamos al setter del apellido
+# De esta manera desde donde sea vamos a ejecutar siempre métodos, creamos con el INIT, ver info STR, conseguir info con el GET
+# y modificar algo será con el SET.
+
+
+class Ejemplo():
+  __atributo_privado = "Soy un metodo inalcanzable desde fuera"
+
+  def __metodo_privado(self):
+    print("Soy un metodo inalcanzable desde fuera")
+
+  def metodo_publico(self):
+    return self.__metodo_privado()
+  # Getters
+  @property
+  def atributo_privado(self):
+    print("Estoy en el GETTER")
+    return self.__atributo_privado
+
+  # Setter
+  @atributo_privado.setter
+  def atributo_privado(self,nuevoValor):
+    print("Estoy en el SETTER")
+    self.__atributo_privado = nuevoValor
+
+  e = Ejemplo()
+
 
 
 
