@@ -331,6 +331,32 @@ c3.mostrar()
 # al objeto c, qué tal si me listas tu lista de películas?, ya que la visualización no es simple sino que hay que visualizar
 # una lista y para verlo esta utilizando un bucle for:
   
+## Clase Nº 5 ##
+# ENCAPSULACION #
+# Consiste en denegar el acceso a los atributos y metodos internos de la clase desde el exterior
+# En Python no existe, pero se puede simular precediendo atributos y metodos con dos barras bajas __:
+# lo que dice la encapsulacion es que las variables no deberian salir nunca de una clase.
+# En Python se crean variables privadas con dos guiones bajo x delante __atributo y esto siginidfica que solamente puede
+# ser invocada desde su clase, por lo que no se puede llamar desde el MAIN
+
+class Ejemplo():
+
+  __atributo_privado = "Soy un atributo inalcanzable desde fuera"
+
+  def __metodo_privado(self):
+    print("Soy un metodo inalcanzable desde fuera")
+
+# Programa principal (fuera de la clase Ejemplo)
+e = Ejemplo()
+e.__atributo_privado #Saldra por pantalla "Error de Atributo" ya que no puede llegar a el,ahi esta la encapsulacion
+# el efecto practico es que estamos añadiendo una pequeña capa de seguridad, es lo mas basico de la seguridad
+
+# No es lo mismo acceder a una variable que a un metodo; acceder a una variable es acceder al contenido por ende a los datos.
+# Acceder a un metodo solo nos devuelve la posicion de memoria donde esta almacenado ese metodo, o sea que nada.
+
+
+
+
 
 
   
