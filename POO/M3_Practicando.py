@@ -374,24 +374,7 @@ GETTER y SETTER
 class Ejemplo():
   __atributo_privado = "Soy un metodo inalcanzable desde fuera"
 
-  def __metodo_privado(self):
-    print("Soy un metodo inalcanzable desde fuera")
 
-  def metodo_publico(self):
-    return self.__metodo_privado()
-  # Getters
-  @property
-  def atributo_privado(self):
-    print("Estoy en el GETTER")
-    return self.__atributo_privado
-
-  # Setter
-  @atributo_privado.setter
-  def atributo_privado(self,nuevoValor):
-    print("Estoy en el SETTER")
-    self.__atributo_privado = nuevoValor
-
-  e = Ejemplo()
 
 
 
