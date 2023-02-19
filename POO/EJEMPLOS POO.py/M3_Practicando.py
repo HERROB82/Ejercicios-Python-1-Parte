@@ -338,7 +338,7 @@ c3.mostrar()'''
 # En Python se crean variables privadas con dos guiones bajo x delante __atributo y esto siginidfica que solamente puede
 # ser invocada desde su clase, por lo que no se puede llamar desde el MAIN
 
-class Ejemplo():
+'''class Ejemplo():
 
   __atributo_privado = "Soy un atributo inalcanzable desde fuera"
 
@@ -348,7 +348,7 @@ class Ejemplo():
 # Programa principal (fuera de la clase Ejemplo)
 e = Ejemplo()
 e.__atributo_privado #Saldra por pantalla "Error de Atributo" ya que no puede llegar a el,ahi esta la encapsulacion
-# el efecto practico es que estamos añadiendo una pequeña capa de seguridad, es lo mas basico de la seguridad
+# el efecto practico es que estamos añadiendo una pequeña capa de seguridad, es lo mas basico de la seguridad'''
 
 # No es lo mismo acceder a una variable que a un metodo; acceder a una variable es acceder al contenido por ende a los datos.
 # Acceder a un metodo solo nos devuelve la posicion de memoria donde esta almacenado ese metodo, o sea que nada.
@@ -360,9 +360,9 @@ e.__atributo_privado #Saldra por pantalla "Error de Atributo" ya que no puede ll
 #Solo puede haber 1 GET o 1 SET x cada Variable
 #Cuando creamos una clase lo primero que tenemos que hacer es el :
 #__INIT__
-Variables (definimos las variables)
-STR
-GETTER y SETTER
+# Variables (definimos las variables)
+# STR
+# GETTER y SETTER
 
 # de todas las variables que hemos definidos hacemos un Getter y un Setter de c/u, y con eso tenemos pleno acceso pero de forma
 # encapsulada a nuestra Clase) si queremos acceder al nombre invocamos al “get del nombre”, 
@@ -371,9 +371,73 @@ GETTER y SETTER
 # y modificar algo será con el SET.
 
 
-class Ejemplo():
+'''class Ejemplo():
   __atributo_privado = "Soy un metodo inalcanzable desde fuera"
 
+  @property
+  def ver_valor(self):
+    print("estoy en el GETTER")
+    return self.__atributo_privado
+
+  @ver_valor.setter
+  def ver_valor(self,nuevoValor):
+    print("Estoy en el SETTER")
+    self.__atributo_privado = nuevoValor
+
+# Programa principal (fuera de la clase ejemplo)
+e = Ejemplo()
+# probamos a acceder a un atributo como antes y VEMOS QUE DA ERROR
+#print(e.atributo_privado)
+# probamos a acceder a un atributo con el nombre que hemos puesto en el GETTER
+print(e.ver_valor)'''
+
+# Orden que se tiene que seguir cuando creamos una clase:
+
+# Class Persona:
+# - INIT-
+# get/set
+# metodos propios
+# str
+
+'''class Persona():
+  __nombre="Soy un atributo inalcanzable desde fuera"
+
+  def __init__(self,nombre,edad):
+    self.__nombre = nombre
+    self.__edad = edad
+
+  #GETTERS
+  @property
+  def nombre(self):
+    print("Estoy en el GETTER DE NOMBRE")
+    return self.__nombre
+  #SETTERS
+  @nombre.setter
+  def nombre (self, nuevoNombre):
+    print("Estoy en el SETTER DE NOMBRE")
+    self.__nombre = nuevoNombre
+
+  #GETTERS
+  @property
+  def edad (self):
+    print("Estoy en el GETTER DE EDAD")
+    return self.__edad
+  #SETTERS
+  @edad.setter
+  def edad (self,nuevaEdad):
+    print("Estoy en el SETTER DE EDAD")
+    self.__edad = nuevaEdad
+
+p1 = Persona("Carlos",30)
+print(p1.nombre)
+print(p1.edad)
+
+p1.nombre = "Cristian"
+print(p1.nombre)'''
+
+
+  
+    
 
 
 

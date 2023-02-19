@@ -77,7 +77,19 @@ print(ro)
 
 # Creamos LISTA de PRODUCTOS
 productos = [al,li,ro]
-print(productos)'''
+print(productos)
+for p in productos:
+    print(p,"\n")
+
+# Con el metodo ISINSTANCE nos sirve para comprobar la pertenencia de un objeto si pertenece a una clase:
+
+for p in productos:
+    if(isinstance(p,Alimento)):
+        print(p.idproducto,"->",p.nombre,"->",p.productor)
+    elif (isinstance(p,Libro)):
+        print(p.idproducto,"->",p.nombre,"->",p.isbn)
+    elif (isinstance(p,Ropa)):
+        print(p.idproducto,"->",p.nombre,"->",p.marca)'''
 
 # Uso del SUPER
 
@@ -126,7 +138,7 @@ print(alimento2.nombre) #da error porque no pusimos todos los argumentos, ahora 
 
 # BONUS: Comprobar si una clase hereda de otra
 
-class Vehiculo:
+'''class Vehiculo:
     pass
 
 class Coche(Vehiculo):
@@ -135,8 +147,50 @@ class Coche(Vehiculo):
 class Gato:
     pass
 
-print(issubclase(Coche,Vehiculo))
-print(issubclase(Gato,Vehiculo))
+print(issubclass(Coche,Vehiculo)) #¿Coche hereda de Vehiculo?
+print(issubclass(Gato,Vehiculo)) #¿Gato hereda de Vehiculo?'''
+
+## CLASE 3 HERENCIA ##
+
+# Ahora vamos a ver ejemplos de Clases,objetos y herencia
+
+# Ejemplo Vehiculos
+# En este ejemplo veremos una estructura de herencia donde la clase hija (Furgoneta) no tiene constructor propio. Esto es asi por una 
+# cuestion de diseño de nuestro problema. En este caso, se ha definido la clase Furgoneta de tal modo que no tiene atributos propios,
+# por lo tanto, para su construccion, basta con utilizacion del constructor padre (Vehiculos).
+
+class Vehiculos():
+    '''Clase Vehiculos. Incluye la marca y modelo de un vehiculo. Por defecto el vehiculo no esta en marcha ni acelerando ni frenando
+
+        args
+        - marca: es un string que compone la marca del vehiculo
+        - modelo: es un string que compone el modelo del vehiculo
+        '''
+    #Definimos las variables como variables de clase y asignamos valores por defecto
+    __enmarcha = False
+
+    #Constructor
+    def __init__(self,marca,modelo):
+        ''' Constructor de la clase Vehiculo'''
+        self.marca = marca
+        self.modelo = modelo
+        print("Vehiculo creado")
+
+    # Getters y setters
+
+    @property
+    def marca(self):
+        '''Metodo getter del atributo marca'''
+        return self.__marca
+    
+    @marca.setter
+    def marca(self,nuevo):
+        '''Metodo setter del atributo marca'''
+        self.__marca = nuevo
+
+
+
+
 
 
 
